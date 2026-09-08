@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111827" />
+    <title>Orbit Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="calculator-card" aria-label="Calculator">
+        <header class="topbar">
+          <div class="brand">
+            <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+            <div>
+              <p class="eyebrow">ORBIT / 01</p>
+              <h1>Calculator</h1>
+            </div>
+          </div>
+          <button class="icon-button theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme">
+            <span class="sun-icon" aria-hidden="true">☼</span>
+          </button>
+        </header>
+
+        <section class="display" aria-live="polite">
+          <div class="display-meta">
+            <span class="display-label">CURRENT CALCULATION</span>
+            <span class="memory-indicator" id="memoryIndicator" hidden>M ACTIVE</span>
+          </div>
+          <div class="expression" id="expression">Ready when you are</div>
+          <div class="result" id="result">0</div>
+        </section>
+
+        <div class="memory-row" aria-label="Memory controls">
+          <button class="memory-button" type="button" data-action="memory-clear">MC</button>
+          <button class="memory-button" type="button" data-action="memory-recall">MR</button>
+          <button class="memory-button" type="button" data-action="memory-add">M+</button>
+          <button class="memory-button" type="button" data-action="memory-subtract">M−</button>
+          <button class="memory-button memory-help" type="button" data-action="clear-history">Clear history</button>
+        </div>
+
+        <section class="keypad" aria-label="Calculator keypad">
+          <button class="key function-key" type="button" data-action="clear">AC</button>
+          <button class="key function-key" type="button" data-action="backspace" aria-label="Delete last character">⌫</button>
+          <button class="key function-key" type="button" data-value="%">%</button>
+          <button class="key operator-key" type="button" data-value="/">÷</button>
+
+          <button class="key" type="button" data-value="7">7</button>
+          <button class="key" type="button" data-value="8">8</button>
+          <button class="key" type="button" data-value="9">9</button>
+          <button class="key operator-key" type="button" data-value="*">×</button>
+
+          <button class="key" type="button" data-value="4">4</button>
+          <button class="key" type="button" data-value="5">5</button>
+          <button class="key" type="button" data-value="6">6</button>
+          <button class="key operator-key" type="button" data-value="-">−</button>
+
+          <button class="key" type="button" data-value="1">1</button>
+          <button class="key" type="button" data-value="2">2</button>
+          <button class="key" type="button" data-value="3">3</button>
+          <button class="key operator-key" type="button" data-value="+">+</button>
+
+          <button class="key zero-key" type="button" data-value="0">0</button>
+          <button class="key" type="button" data-value=".">.</button>
+          <button class="key equals-key" type="button" data-action="equals">=</button>
+        </section>
+
+        <footer class="keyboard-hint">
+          <span class="status-dot"></span>
+          <span>Keyboard ready</span>
+          <span class="hint-divider">•</span>
+          <span><kbd>Enter</kbd> to calculate</span>
+        </footer>
+      </section>
+
+      <aside class="history-card" aria-label="Calculation history">
+        <div class="history-header">
+          <div>
+            <p class="eyebrow">YOUR TRAIL</p>
+            <h2>History</h2>
+          </div>
+          <span class="history-count" id="historyCount">0</span>
+        </div>
+        <div class="history-list" id="historyList">
+          <div class="empty-history">
+            <span class="empty-icon" aria-hidden="true">↗</span>
+            <p>No calculations yet</p>
+            <span>Your results will appear here</span>
+          </div>
+        </div>
+        <div class="history-footer">
+          <span>Saved on this device</span>
+          <span class="save-icon" aria-hidden="true">◈</span>
+        </div>
+      </aside>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
